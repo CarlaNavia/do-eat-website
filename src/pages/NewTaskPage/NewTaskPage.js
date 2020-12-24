@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import "./NewTaskPage.css";
+import "./NewTaskPage.css";
 import TaskService from "../../lib/task-service";
 
 class NewTask extends Component {
