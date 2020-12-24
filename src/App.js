@@ -7,6 +7,7 @@ import Login from "./pages/LoginPage/LoginPage";
 import PrivateRoute from "./components/PrivateRoute";
 import NewTask from "./pages/NewTaskPage/NewTaskPage";
 import Navbar from "./components/Navbar/Navbar";
+import TasksPage from "./pages/TasksPage/TasksPage"
 
 class App extends Component {
   render() {
@@ -32,7 +33,7 @@ class App extends Component {
             exact
             user={user}
             path="/"
-            component={() => <h1>TASKS PRIVATE ROUTE</h1>}
+            component={TasksPage}
           />
           <PrivateRoute
             exact
