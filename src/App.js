@@ -1,34 +1,36 @@
-import withFirebaseAuth from 'react-with-firebase-auth'
-import './App.css';
-import logo from "./logo.svg";
-import React, { Component } from 'react'
-import { firebaseAppAuth, providers } from "./config/firebase"
-
+import withFirebaseAuth from "react-with-firebase-auth";
+import "./App.css";
+import React, { Component } from "react";
+import { firebaseAppAuth, providers } from "./config/firebase";
+import { Route, Switch } from "react-router-dom";
+import Login from "./pages/LoginPage/LoginPage";
+import PrivateRoute from "./components/PrivateRoute";
 
 class App extends Component {
   render() {
-    const {
-      user,
-      signOut,
-      signInWithGoogle,
-    } = this.props;
-    
+    const { user, signOut, signInWithGoogle } = this.props;
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          {
-            user 
-              ? <p>Hello, {user.displayName}</p>
-              : <p>Please sign in.</p>
-          }
-          {
-            user
-              ? <button onClick={signOut}>Sign out</button>
-              : <button onClick={signInWithGoogle}>Sign in with Google</button>
-          }
-        </header>
-      </div>
+      <Switch>
+        {/* <Route exact path="/signup" component={Signup} /> */}
+        <Route
+          exact
+          path="/login"
+          render={(props) => (
+            <Login
+              {...props}
+              user={user}
+              signOut={signOut}
+              signInWithGoogle={signInWithGoogle}
+            />
+          )}
+        />
+        <PrivateRoute
+          exact
+          user={user}
+          path="/"
+          component={() => <h1>TASKS PRIVATE ROUTE</h1>}
+        />
+      </Switch>
     );
   }
 }
