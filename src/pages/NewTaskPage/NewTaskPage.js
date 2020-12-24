@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 // import "./NewTaskPage.css";
+import TaskService from "../../lib/task-service";
 
 class NewTask extends Component {
   state = {
@@ -11,13 +12,12 @@ class NewTask extends Component {
     event.preventDefault();
     const title = this.state.title;
     const description = this.state.description;
-    const task = { title, description, userId:this.props.user.uid };
-    console.log(task, "task")
-    console.log(this.props, "this.props")
-    //   .then(() => {
-    //     this.props.history.push("/");
-    //   })
-    //   .catch((error) => console.log(error));
+    const task = { title, description, userId: this.props.user.uid, isDone:false};
+    TaskService.addNewTask(task)
+      .then(() => {
+        this.props.history.push("/");
+      })
+      .catch((error) => console.log(error));
   };
 
   handleChange = (updatedInfo) => {
