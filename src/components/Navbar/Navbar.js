@@ -1,6 +1,9 @@
 import React from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
+
 
 function Navbar() {
   return (
@@ -18,13 +21,13 @@ function Navbar() {
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="buttons">
-              <Link to="/new-task" className="button btn-add ">
-                <img src="../../../add.png" alt="add-task" />
+              <Link to="/new-task" className="button ">
+                <FontAwesomeIcon icon={faPlusCircle} size="lg" color="#34735c"/>
               </Link>
             </div>
           </div>
         </div>
-      </div>      
+      </div>
     </nav>
   );
 }

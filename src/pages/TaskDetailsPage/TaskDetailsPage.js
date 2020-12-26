@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import TaskDetail from "../../components/TaskDetail/TaskDetail";
 import { Link } from "react-router-dom";
 import TaskService from "../../lib/task-service";
-// import "./TaskDetailsPage.css";
+import "./TaskDetailsPage.css"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt, faArrowLeft, faEdit } from "@fortawesome/free-solid-svg-icons";
+
 
 class TaskDetailsPage extends Component {
   state = {
@@ -24,17 +27,17 @@ class TaskDetailsPage extends Component {
       });
   };
 
-  //   deleteTask = () => {
-  //     const { params } = this.props.match;
-  //     axios
-  //       .delete(`http://localhost:4000/api/v1/todos/${params.id}`)
-  //       .then(() => {
-  //         this.props.history.push("/");
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       });
-  //   };
+    deleteATask = () => {
+      const { params } = this.props.match;
+      TaskService
+      .deleteOneTask(params.taskId)
+        .then(() => {
+          this.props.history.push("/");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
 
   componentDidMount() {
     this.getATask();
@@ -45,19 +48,15 @@ class TaskDetailsPage extends Component {
       <div className="detail-page ">
         <div className="action-btn">
           <Link to={"/"}>
-            <img className="icons" src="../../../goback.png" alt="back" />
+          <FontAwesomeIcon icon={faArrowLeft} size="lg" color="#34735c"/>
           </Link>
           <div className="actions">
             <Link to={`/edit/${this.state.aTask._id}`}>
-              <img
-                className="icons margin_buttons"
-                src="../../../edit.png"
-                alt="edit"
-              />
+            <FontAwesomeIcon icon={faEdit} size="lg" color="#34735c"/>
             </Link>
-            {/* <button className="delete-btn" onClick={() => this.deleteTask()}>
-              <img className="icons" src="../../../delete.png" alt="delete" />
-            </button> */}
+            <button className="delete-btn" onClick={() => this.deleteATask()}>
+            <FontAwesomeIcon icon={faTrashAlt} size="lg" color="#34735c"/>
+            </button>
           </div>
         </div>
         <TaskDetail eachDetail={this.state.aTask} />
