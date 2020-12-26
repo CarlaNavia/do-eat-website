@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import TaskService from "../../lib/task-service";
+import TaskList from "../../components/TaskList/TaskList";
+import "./TasksPage.css"
 
 class TasksPage extends Component {
   state = {
@@ -8,9 +10,8 @@ class TasksPage extends Component {
   getAllTasks = () => {
     TaskService.getMyTasks(this.props.user.uid)
       .then((responseFromApi) => {
-          console.log(responseFromApi, "response")
         this.setState({
-          listOfTasks: responseFromApi.data,
+          listOfTasks: responseFromApi,
         });
       })
       .catch((error) => {
@@ -21,7 +22,15 @@ class TasksPage extends Component {
     this.getAllTasks();
   }
   render() {
-    return <div></div>;
+    return (
+      <div>
+        <h1 className="home-title">What do I need to EAT?</h1>
+        <TaskList
+          eachTask={this.state.listOfTasks}
+          //   updateTaskStatus={this.updateTaskStatus}
+        />
+      </div>
+    );
   }
 }
 export default TasksPage;
