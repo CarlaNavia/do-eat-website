@@ -12,7 +12,12 @@ class NewTask extends Component {
     event.preventDefault();
     const title = this.state.title;
     const description = this.state.description;
-    const task = { title, description, userId: this.props.user.uid, isDone:false};
+    const task = {
+      title,
+      description,
+      userId: this.props.user.uid,
+      isDone: false,
+    };
     TaskService.addNewTask(task)
       .then(() => {
         this.props.history.push("/");
@@ -27,28 +32,31 @@ class NewTask extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleFormSubmit} className="task-form">
-        <label className="label-form">Title:</label>
-        <input
-          type="text"
-          name="title"
-          className="input-form"
-          value={this.state.title}
-          onChange={(updatedInfo) => this.handleChange(updatedInfo)}
-        />
-        <br />
+      <div>
+        <h1 className="add-title">Are you missing something? <br/> Let's addEat!</h1>
+        <form onSubmit={this.handleFormSubmit} className="task-form">
+          <input
+            type="text"
+            name="title"
+            placeholder="Title"
+            className="input-form"
+            value={this.state.title}
+            onChange={(updatedInfo) => this.handleChange(updatedInfo)}
+          />
+          <br />
 
-        <label className="label-form">Description:</label>
-        <input
-          type="text"
-          name="description"
-          className="input-form"
-          value={this.state.description}
-          onChange={(updatedInfo) => this.handleChange(updatedInfo)}
-        />
-        <br />
-        <input type="submit" value="ADD NOW" className="task-form-button" />
-      </form>
+          <input
+            type="text"
+            name="description"
+            className="input-form"
+            placeholder="Description, quantity..."
+            value={this.state.description}
+            onChange={(updatedInfo) => this.handleChange(updatedInfo)}
+          />
+          <br />
+          <input type="submit" value="addEAT!" className="task-form-button" />
+        </form>
+      </div>
     );
   }
 }
