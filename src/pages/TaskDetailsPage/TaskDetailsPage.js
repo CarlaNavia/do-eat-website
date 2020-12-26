@@ -20,7 +20,6 @@ class TaskDetailsPage extends Component {
         this.setState({
           aTask: responseFromApi,
         });
-        console.log(responseFromApi, "API");
       })
       .catch((error) => {
         console.log(error);
@@ -51,7 +50,7 @@ class TaskDetailsPage extends Component {
           <FontAwesomeIcon icon={faArrowLeft} size="lg" color="#34735c"/>
           </Link>
           <div className="actions">
-            <Link to={`/edit/${this.state.aTask._id}`}>
+            <Link to={`/edit/${this.state.aTask.id}`}>
             <FontAwesomeIcon icon={faEdit} size="lg" color="#34735c"/>
             </Link>
             <button className="delete-btn" onClick={() => this.deleteATask()}>

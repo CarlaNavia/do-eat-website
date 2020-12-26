@@ -9,6 +9,7 @@ import NewTask from "./pages/NewTaskPage/NewTaskPage";
 import Navbar from "./components/Navbar/Navbar";
 import TasksPage from "./pages/TasksPage/TasksPage"
 import TaskDetailsPage from "./pages/TaskDetailsPage/TaskDetailsPage"
+import EditTask from "./pages/EditTask/EditTask"
 
 class App extends Component {
   render() {
@@ -47,6 +48,12 @@ class App extends Component {
             user={user}
             path="/task/:taskId"
             component={TaskDetailsPage}
+          />
+                <PrivateRoute
+            exact
+            user={user}
+            path="/edit/:taskId"
+            component={EditTask}
           />
         </Switch>
       </div>

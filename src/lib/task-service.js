@@ -42,6 +42,10 @@ class TaskService {
   deleteOneTask(taskId) {
     return firebaseApp.firestore().collection("Tasks").doc(taskId).delete();
   }
+
+  editOneTask(taskId, task) {
+    return firebaseApp.firestore().collection("Tasks").doc(taskId).update(task);
+  }
 }
 
 export default new TaskService();
