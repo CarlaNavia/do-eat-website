@@ -38,6 +38,10 @@ class TaskService {
         };
       });
   }
+
+  deleteOneTask(taskId) {
+    return firebaseApp.firestore().collection("Tasks").doc(taskId).delete();
+  }
 }
 
 export default new TaskService();
