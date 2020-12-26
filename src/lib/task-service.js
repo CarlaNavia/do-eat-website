@@ -22,6 +22,22 @@ class TaskService {
         });
       });
   }
+  getOneTask(taskId) {
+    return firebaseApp
+      .firestore()
+      .collection("Tasks")
+      .doc(taskId)
+      .get()
+      .then((result) => {
+        const task = result.data();
+        return {
+          id: result.id,
+          title: task.title,
+          description: task.description,
+          isDone: task.isDone,
+        };
+      });
+  }
 }
 
 export default new TaskService();
