@@ -4,14 +4,15 @@
 
 Are you eager to have an application where you could add all the items that you need to buy in the supermarket? This is your solution! doEAT is an application to check all your pending items to buy. 
 
-There, you will be able to:
-1-.You could access to the registration or to log in\
-2-.See your persona whole list of tasks\
-3-.You could check the description of each task\
-4-.You could add a new task\
-5-.You could update an existing task\
-6-.You could delete a task
-7-.You could logout
+There, you will be able to:\
+1-.You could access to the registration and to the log in page\
+2-.See your personal list of tasks\
+3-.Mark a task done by the checkbox\
+4-.You could check the description of each task\
+5-.You could add a new task\
+6-.You could update an existing task\
+7-.You could delete a task\
+8-.You could logout from the application\
 
 ## Requirements:
 
@@ -34,8 +35,6 @@ This is an application uses:
 - `CSS`: to manage the UX 
 - `Bulma`: for the navbar and the responsiveness
 
-
-
 ## Style
 
-the design is Mobile First because the application is focused on using it from a mobile.
+The design is Mobile First because the application is focused on using it from a mobile.
