@@ -16,7 +16,7 @@ class App extends Component {
     const { user, signOut, signInWithGoogle } = this.props;
     return (
       <div>
-        <Navbar />
+        <Navbar signOut={signOut} user={user}/>
         <Switch>
           {/* <Route exact path="/signup" component={Signup} /> */}
           <Route
