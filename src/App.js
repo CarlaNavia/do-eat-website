@@ -4,19 +4,27 @@ import React, { Component } from "react";
 import { firebaseAppAuth, providers } from "./config/firebase";
 import { Route, Switch } from "react-router-dom";
 import Login from "./pages/LoginPage/LoginPage";
+import Register from "./pages/RegisterPage/RegisterPage";
 import PrivateRoute from "./components/PrivateRoute";
 import NewTask from "./pages/NewTaskPage/NewTaskPage";
 import Navbar from "./components/Navbar/Navbar";
-import TasksPage from "./pages/TasksPage/TasksPage"
-import TaskDetailsPage from "./pages/TaskDetailsPage/TaskDetailsPage"
-import EditTask from "./pages/EditTask/EditTask"
+import TasksPage from "./pages/TasksPage/TasksPage";
+import TaskDetailsPage from "./pages/TaskDetailsPage/TaskDetailsPage";
+import EditTask from "./pages/EditTask/EditTask";
 
 class App extends Component {
   render() {
-    const { user, signOut, signInWithGoogle } = this.props;
+    const {
+      user,
+      signOut,
+      signInWithGoogle,
+      signInWithEmailAndPassword,
+      error,
+      createUserWithEmailAndPassword,
+    } = this.props;
     return (
       <div>
-        <Navbar signOut={signOut} user={user}/>
+        <Navbar signOut={signOut} user={user} />
         <Switch>
           {/* <Route exact path="/signup" component={Signup} /> */}
           <Route
@@ -26,30 +34,38 @@ class App extends Component {
               <Login
                 {...props}
                 user={user}
-                signOut={signOut}
                 signInWithGoogle={signInWithGoogle}
+                signInWithEmailAndPassword={signInWithEmailAndPassword}
+                error={error}
               />
             )}
           />
-          <PrivateRoute
+          <Route
             exact
-            user={user}
-            path="/"
-            component={TasksPage}
+            path="/register"
+            render={(props) => (
+              <Register
+                {...props}
+                user={user}
+                error={error}
+                createUserWithEmailAndPassword={createUserWithEmailAndPassword}
+              />
+            )}
           />
+          <PrivateRoute exact user={user} path="/" component={TasksPage} />
           <PrivateRoute
             exact
             user={user}
             path="/new-task"
             component={NewTask}
           />
-              <PrivateRoute
+          <PrivateRoute
             exact
             user={user}
             path="/task/:taskId"
             component={TaskDetailsPage}
           />
-                <PrivateRoute
+          <PrivateRoute
             exact
             user={user}
             path="/edit/:taskId"
