@@ -4,7 +4,7 @@ import "./TaskDetail.css"
 function TaskDetail({ eachDetail }) {
   return (
     <div className="card-detail">
-      <h2><strong>{eachDetail.title}</strong></h2>
+      <h2 className="title-detail-page">{eachDetail.title}</h2>
       <p>{eachDetail.description}</p>
     </div>
   );
