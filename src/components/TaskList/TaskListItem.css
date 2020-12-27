@@ -10,4 +10,11 @@
     color: rgb(117, 117, 117)
   }
   
- 
+  .isDone {
+    text-decoration: line-through;
+  }
+  
+  .isDone .title-list {
+  color: lightgray;
+  }
+  

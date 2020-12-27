@@ -2,12 +2,9 @@ import React, { Component } from "react";
 import "./TaskListItem.css";
 import Checkbox from "../../components/Checkbox";
 import { Link } from "react-router-dom";
+import classNames from "classnames";
 
 class TaskListItem extends Component {
-  state = {
-    isDone: false,
-  };
-
   onChangeStatus = (event) => {
     const { checked } = event.target;
     this.props.updateTaskStatus(this.props.oneItem.id, checked);
@@ -15,7 +12,10 @@ class TaskListItem extends Component {
 
   render() {
     return (
-      <div key={this.props.oneItem.id} className="card">
+      <div
+        key={this.props.oneItem.id}
+        className={classNames("card", { isDone: this.props.oneItem.isDone })}
+      >
         <Checkbox
           onChange={(event) => this.onChangeStatus(event)}
           isDone={this.props.oneItem.isDone}
