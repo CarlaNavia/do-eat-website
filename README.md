@@ -12,7 +12,7 @@ There, you will be able to:\
 5-.You could add a new task\
 6-.You could update an existing task\
 7-.You could delete a task\
-8-.You could logout from the application\
+8-.You could logout from the application
 
 ## Requirements:
 
@@ -34,6 +34,7 @@ This is an application uses:
 - `HTML 5`: to structure the webpage
 - `CSS`: to manage the UX 
 - `Bulma`: for the navbar and the responsiveness
+- `react-fontawesome`: for the application icons such as add, delete, edit...
 
 ## Style
 
