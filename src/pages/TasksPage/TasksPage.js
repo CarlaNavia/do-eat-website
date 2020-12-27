@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import TaskService from "../../lib/task-service";
 import TaskList from "../../components/TaskList/TaskList";
-import "./TasksPage.css"
+import "./TasksPage.css";
 
 class TasksPage extends Component {
   state = {
@@ -18,6 +18,11 @@ class TasksPage extends Component {
         console.log(error);
       });
   };
+  updateTaskStatus = (id, isDone) => {
+    TaskService.editOneTask(id, { isDone }).then(() => {
+      this.getAllTasks();
+    });
+  };
   componentDidMount() {
     this.getAllTasks();
   }
@@ -27,7 +32,7 @@ class TasksPage extends Component {
         <h1 className="home-title">What do I need to EAT?</h1>
         <TaskList
           eachTask={this.state.listOfTasks}
-          //   updateTaskStatus={this.updateTaskStatus}
+          updateTaskStatus={this.updateTaskStatus}
         />
       </div>
     );

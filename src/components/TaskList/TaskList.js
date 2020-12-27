@@ -10,7 +10,7 @@ class TaskList extends Component {
             <TaskListItem
               key={index}
               oneItem={eachTask}
-            //   updateTaskStatus={this.props.updateTaskStatus}
+              updateTaskStatus={this.props.updateTaskStatus}
             />
           );
         })}
