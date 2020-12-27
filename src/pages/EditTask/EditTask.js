@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TaskService from "../../lib/task-service";
+import "./EditTask.css"
 
 class EditTask extends Component {
   state = {
@@ -45,7 +46,7 @@ class EditTask extends Component {
   render() {
     return (
       <div>
-        <h3>Edit form</h3>
+        <h1 className="edit-title">Edit page</h1>
         <form onSubmit={this.handleFormSubmit} className="task-form">
           <label className="label-form">Task:</label>
           <input
@@ -65,7 +66,7 @@ class EditTask extends Component {
             onChange={(event) => this.handleChange(event, "description")}
           />
           <br />
-          <input type="submit" value="SAVE" className="task-form-button" />
+          <input type="submit" value="Save" className="task-form-button" />
         </form>
       </div>
     );
