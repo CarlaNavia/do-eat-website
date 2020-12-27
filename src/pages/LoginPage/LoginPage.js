@@ -27,8 +27,20 @@ class LoginPage extends Component {
     }
 
     return (
-      <div>
-        <h1 className="login-title">Login</h1>
+      <div className="login-page">
+        <h1 className="login-title">
+          Welcome to doEAT! <br />
+          In order to start using the application, you should be logged in:{" "}
+        </h1>
+        <h2 className="expl-title">You can sign in with Google:</h2>
+        <button onClick={signInWithGoogle} className="login-form-button">
+          Sign in with Google
+        </button>
+        <br/>
+        <h2 className="expl-title">
+          Or you can complete the login form with your email and your password:
+        </h2>
+
         <form onSubmit={this.handleLogin} className="task-form">
           <input
             type="email"
@@ -47,15 +59,17 @@ class LoginPage extends Component {
             value={this.state.password}
             onChange={(event) => this.handleChange(event, "password")}
           />
-       <br/>
-          <button className="task-form-button">Log in</button>
-          <br/>
+          <br />
+          <button className="login-form-button">Log in</button>
+          <br />
           {error && <span style={{ color: "red" }}>{error}</span>}
         </form>
-        <button onClick={signInWithGoogle} className="task-form-button">
-          Sign in with Google
-        </button>
-        <Link to={"/register"}>Register</Link>
+        <h2 className="expl-title">
+          Please, click here in case that you need to be registered:
+        </h2>
+        <Link to={"/register"} className="login-form-button">
+          Register
+        </Link>
       </div>
     );
   }

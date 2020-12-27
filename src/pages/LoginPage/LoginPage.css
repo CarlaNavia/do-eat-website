@@ -1,27 +1,41 @@
+.login-page{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 .task-form {
   display: flex;
   flex-direction: column;
   margin: 30px;
-  margin-bottom: 150px;
 }
 
 .input-form {
-  border: 1px solid rgb(52, 115, 92);
+  border: 1px solid #fbb13c;
   padding: 10px;
 }
 
-.task-form-button {
+.login-form-button {
   background-color: #f6f6f0;
   font-size: 26px;
   padding: 5px;
   color: rgb(52, 115, 92);
   border: 1px solid rgb(52, 115, 92);
+  display: flex;
+  margin:0 auto;
 }
 .login-title {
-    font-weight: bold;
-    font-size: 20px;
-    text-align: center;
-    padding: 15px;
-    margin-top: 60px;
-    color: #fbb13c
-  }
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  padding: 15px;
+  margin-top: 60px;
+  color: #fbb13c;
+}
+
+.expl-title {
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+  padding: 15px;
+  color: rgb(52, 115, 92);
+}

@@ -47,6 +47,7 @@ class App extends Component {
               <Register
                 {...props}
                 user={user}
+                signInWithGoogle={signInWithGoogle}
                 error={error}
                 createUserWithEmailAndPassword={createUserWithEmailAndPassword}
               />
